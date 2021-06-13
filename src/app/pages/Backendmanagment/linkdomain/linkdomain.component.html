@@ -1,0 +1,101 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+
+            <div class="card-header">
+                <div class="row">
+                    <!--Orders page header-->
+                    <div class="col-12 col-md-6">
+                        <h4 class="card-title pt-3">
+                            Related Code Domain's
+                        </h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-body">
+                <div class="row mb-2">
+                    <!--Search Box-->
+                    <div class="col-12 col-md-6">
+                        <label for="searchHere">Search here</label>
+                        <input class="form-control" type="text" name="search" id="searchHere" [(ngModel)]="searchText" autocomplete="off" placeholder="Type here to search" />
+                    </div>
+                    <div class="col-12 col-md-6 text-right">
+                        <button class="btn btn-primary" routerLink="/backend/link/new">Add
+              More</button>
+                    </div>
+                </div>
+
+                <div class="row p-3" *ngIf="allRelaitedDomain?.length <= 0">
+                    <div class="col-12 col-md-12 text-center mt-3">
+                        <p>No Related Code Domain found's</p>
+                    </div>
+                </div>
+
+                <div class="row" *ngIf="allRelaitedDomain?.length >= 1">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead class="bg-dark text-white" style="opacity: 0.9;">
+                                <th>
+                                    #
+                                </th>
+                                <th>
+                                    Code Domain
+                                </th>
+                                <th>
+                                    Code Value
+                                </th>
+                                <th>
+                                    Related Code Domain
+                                </th>
+                                <th>
+                                    Related Value
+                                </th>
+                                <th>
+                                    Status
+                                </th>
+                                <th>
+                                    Created Date
+                                </th>
+                                <th>
+                                    Action
+                                </th>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let item of allRelaitedDomain | filter: searchText | paginate: { itemsPerPage: 10, currentPage: p }; index as i">
+                                    <td>
+                                        {{i+1}}
+                                    </td>
+                                    <td>
+                                        {{item?.codedomain1?.name}}
+                                    </td>
+                                    <td>
+                                        {{item?.codedomain_values1.value}}
+                                    </td>
+                                    <td>
+                                        {{item?.codedomain2?.name}}
+                                    </td>
+                                    <td>
+                                        {{item?.codedomain_values2.value}}
+                                    </td>
+                                    <td>
+                                        {{ item?.status }}
+                                    </td>
+                                    <td>
+                                        {{ item?.createdAt | date: 'EEEE h:mm a' }}
+                                    </td>
+                                    <td>
+                                        <i class="fa fa-pencil action_btn" aria-hidden="true" routerLink="/backend/link/{{item?._id}}"></i>
+                                        <i class="fa fa-trash action_btn" aria-hidden="true" (click)="delete(item._id)"></i>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <br>
+                        <pagination-controls (pageChange)="p= $event"></pagination-controls>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>

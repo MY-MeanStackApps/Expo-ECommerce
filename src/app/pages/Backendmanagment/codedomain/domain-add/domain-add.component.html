@@ -1,0 +1,115 @@
+<div class="row pl-1">
+    <i class="ion d-block ion-md-arrow-round-back" routerLink="/backend/code_domain"></i>
+</div>
+<br />
+<div class="modal-content">
+    <div class="row mt-3 mb-5 p-4">
+        <div class="form-group" style="width: 100%">
+            <div class="row">
+
+                <div class="col-12 col-md-12">
+                    <h4 class="p-1">
+                        <span *ngIf="action">Add</span>
+                        <span *ngIf="!action">Edit</span> Code Domain
+                    </h4>
+                </div>
+
+                <div class="col-12 col-md-6">
+                    <label class="form-label">Code Domain Name</label>
+                    <input name="DomainName" placeholder="Domain Name" class="form-control" type="text" [(ngModel)]="formObj.name" />
+                </div>
+
+                <div class="col-12 col-md-6">
+                    <label class="form-label">Code Domain Code</label>
+                    <input name="Domain" placeholder="Domain Code" class="form-control" type="text" [(ngModel)]="formObj.code" />
+                </div>
+
+                <div class="col-12 col-md-6">
+                    <label class="form-label">Status</label>
+                    <select name="status" id="" class="form-control" [(ngModel)]="formObj.status">
+                      <option value="">Please select One</option>
+                      <option value="active">Active</option>
+                      <option value="inactive">in Active</option>
+                    </select>
+                </div>
+
+                <div class="col-12 col-md-12 justify-content-end text-right mt-5">
+                    <button type="button" class="btn btn-success customBtn" *ngIf="action" (click)="create()"> Save and Exit </button>
+                    <button type="button" class="btn btn-info customBtn" *ngIf="!action" (click)="update()"> Save and Exit </button>
+                </div>
+
+            </div>
+            <br>
+            <table class="table" *ngIf="!action ">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Code Domain Value</th>
+                        <th scope="col">Value Status</th>
+                        <th scope="col">Code</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody *ngIf="domainValues?.length >= 1">
+                    <tr *ngFor="let item of domainValues;index as i">
+                        <th scope="row">#{{i+1}}</th>
+                        <td>{{item?.value}}</td>
+                        <td>{{item?.status}}</td>
+                        <td>{{item?.code}}</td>
+                        <td>
+                            <i class="fa fa-trash action_btn" (click)="delete(item?._id)" aria-hidden="true"></i>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="text-center" *ngIf="domainValues?.length <= 0 && !action">No Values Found</p>
+
+            <div class="col-12 col-md-12 justify-content-start text-left mt-5" *ngIf="!action">
+                <button type="button" class="btn btn-primary customBtn" data-toggle="modal" data-target="#exampleModal"> Add More </button>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="col-12 col-md-12">
+                        <label class="form-label">Code Domain Value</label>
+                        <input name="DomainName" placeholder="Domain Value" class="form-control" type="text" [(ngModel)]="valueObj.value" />
+                    </div>
+
+                    <div class="col-12 col-md-12">
+                        <label class="form-label">Code Domain Code</label>
+                        <input name="Domain" placeholder="Domain Code" class="form-control" type="text" [(ngModel)]="valueObj.code" />
+                    </div>
+
+                    <div class="col-12 col-md-12">
+                        <label class="form-label">Status</label>
+                        <select name="status" id="" class="form-control" [(ngModel)]="valueObj.status">
+                      <option value="">Please select One</option>
+                      <option value="active">Active</option>
+                      <option value="inactive">in Active</option>
+                    </select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" id="closeModal" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" (click)="createValue()">Create Now</button>
+            </div>
+        </div>
+    </div>
+</div>

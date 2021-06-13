@@ -1,0 +1,68 @@
+<div class="row pl-1">
+    <i class="ion d-block ion-md-arrow-round-back" routerLink="/backend/link"></i>
+</div>
+<br />
+<div class="modal-content">
+    <div class="row mt-3 mb-5 p-4">
+        <div class="form-group" style="width: 100%">
+            <div class="row">
+
+                <div class="col-12 col-md-12">
+                    <h4 class="p-1">
+                        <span *ngIf="action">Add</span>
+                        <span *ngIf="!action">Edit</span> Related Code Domain
+                    </h4>
+                </div>
+
+
+                <div class="col-12 col-md-6">
+                    <label class="form-label" for="codeDomain1">Domain Name 1</label>
+                    <select name="codeDomain1" class="form-control" id="codeDomain1" (change)="onDomainChange1($event.target.value)" [(ngModel)]="formObj.codedomain1">
+                <option value="">Please select One</option>
+                <option  *ngFor="let item of allDomains;index as i" value="{{item?._id}}">{{item?.name}}</option>
+              </select>
+                </div>
+
+                <div class="col-12 col-md-6">
+                    <label class="form-label" for="codeDomainValue1"> Domain Code 1 Value</label>
+                    <select name="codeDomainValue1" class="form-control" id="codeDomainValue1" [(ngModel)]="formObj.codedomain_values1">
+                    <option value="">Please select One</option>
+                    <option  *ngFor="let item of valuesAgainst_Domain1;index as i" value="{{item?._id}}">{{item?.value}}</option>
+                  </select>
+                </div>
+
+                <div class="col-12 col-md-6">
+                    <label class="form-label" for="codeDomain2">Domain Name 2</label>
+                    <select name="codeDomain2" class="form-control" id="codeDomain2" (change)="onDomainChange2($event.target.value)" [(ngModel)]="formObj.codedomain2">
+                  <option value="">Please select One</option>
+                  <option  *ngFor="let item of allDomains;index as i" value="{{item?._id}}">{{item?.name}}</option>
+                </select>
+                </div>
+
+                <div class="col-12 col-md-6">
+                    <label class="form-label" for="codeDomain2Val"> Domain Code 2 Value</label>
+                    <select name="codeDomain2Val" class="form-control" id="codeDomain2Val" [(ngModel)]="formObj.codedomain_values2">
+                  <option value="">Please select One</option>
+                  <option  *ngFor="let item of valuesAgainst_Domain2;index as i" value="{{item?._id}}">{{item?.value}}</option>
+                </select>
+                </div>
+
+
+                <div class="col-12 col-md-6">
+                    <label class="form-label">Status</label>
+                    <select name="status" id="" class="form-control" [(ngModel)]="formObj.status">
+                    <option value="">Please select One</option>
+                    <option value="active">Active</option>
+                    <option value="inactive">in Active</option>
+                  </select>
+                </div>
+
+            </div>
+
+            <div class="row justify-content-end text-right mr-5 mt-5">
+                <button type="button" class="btn btn-success customBtn" *ngIf="action" (click)="create()"> Save and Exit </button>
+                <button type="button" class="btn btn-info customBtn" *ngIf="!action" (click)="update()"> Save and Exit </button>
+            </div>
+        </div>
+    </div>
+</div>

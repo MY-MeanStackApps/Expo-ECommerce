@@ -1,0 +1,99 @@
+<sidenav [orientation]="orientation" [ngClass]="getClasses()">
+
+
+    <div class="sidenav-inner" [ngClass]="{ 'py-1': orientation !== 'horizontal' }">
+
+        <img src="../../../assets/logo_gravaldi1.png" id="sidebar_logo" alt="">
+        <sidenav-router-link icon="ion ion-md-time" route="/dashboard" [active]="isActive('/dashboard')">Dashboard</sidenav-router-link>
+        <!-- <sidenav-router-link icon="ion ion-md-business" route="/seller" [active]="isActive('/seller')"></sidenav-router-link> -->
+        <!-- Seller Accounts  -->
+        <sidenav-menu icon="ion ion-md-business" text="Seller Management" [active]="isMenuActive('/seller')" [open]="isMenuOpen('/seller')">
+            <sidenav-router-link route="/seller" [active]="isActive('/seller')">Prospects</sidenav-router-link>
+            <sidenav-router-link route="/comingsoon" [active]="isActive('/comingsoon')">Leads</sidenav-router-link>
+            <sidenav-router-link route="/abc" [active]="isActive('/abc')">Registration</sidenav-router-link>
+            <sidenav-menu icon="ion ion-md-business" text="Onboarding" [active]="isMenuActive('/abc')" [open]="isMenuOpen('/abc')">
+                <sidenav-router-link route="/abc" [active]="isActive('/abc')">Registration</sidenav-router-link>
+            </sidenav-menu>
+            <sidenav-menu icon="ion ion-md-business" text="Account Activation" [active]="isMenuActive('/abc')" [open]="isMenuOpen('/abc')">
+                <sidenav-router-link route="/abc" [active]="isActive('/abc')">Activation status
+                </sidenav-router-link>
+            </sidenav-menu>
+            <sidenav-menu icon="ion ion-md-business" text="Product Catalogues" [active]="isMenuActive('/abc')" [open]="isMenuOpen('/abc')">
+                <sidenav-router-link route="/abc" [active]="isActive('/abc')">Product Catalogue
+                </sidenav-router-link>
+                <sidenav-router-link route="/abc" [active]="isActive('/abc')">Product Listing
+                </sidenav-router-link>
+                <sidenav-router-link route="/abc" [active]="isActive('/abc')">Product Listing Qr Approvals</sidenav-router-link>
+                <sidenav-router-link route="/abc" [active]="isActive('/abc')">SEO Approvals on keyboard tags</sidenav-router-link>
+                <sidenav-router-link route="/abc" [active]="isActive('/abc')">SEO Theme Content Approval</sidenav-router-link>
+            </sidenav-menu>
+            <sidenav-menu icon="ion ion-md-business" text="Stories" [active]="isMenuActive('/abc')" [open]="isMenuOpen('/abc')">
+                <sidenav-router-link route="/abc" [active]="isActive('/abc')">Seller Stories
+                </sidenav-router-link>
+                <sidenav-router-link route="/abc" [active]="isActive('/abc')">Brand QC Approvals
+                </sidenav-router-link>
+            </sidenav-menu>
+        </sidenav-menu>
+
+        <!--Commercials Management-->
+        <sidenav-menu icon="ion ion-md-business" text="Commercials Management" [active]="isMenuActive('/abc')" [open]="isMenuOpen('/abc')">
+            <sidenav-router-link route="/abc" [active]="isActive('/abc')">Seller Account Activation</sidenav-router-link>
+        </sidenav-menu>
+
+        <!-- QC Management  -->
+        <sidenav-menu icon="ion ion-md-business" text="QC Management" [active]="isMenuActive('/abc')" [open]="isMenuOpen('/abc')">
+            <sidenav-router-link route="/abc" [active]="isActive('/abc')">Product QC Approval
+            </sidenav-router-link>
+            <sidenav-router-link route="/abc" [active]="isActive('/abc')">Brand QC Approval
+            </sidenav-router-link>
+        </sidenav-menu>
+
+        <!-- Theme Management -->
+        <sidenav-menu icon="ion ion-md-business" text="Theme Management" [active]="isMenuActive('/abc')" [open]="isMenuOpen('/abc')">
+            <sidenav-router-link route="/abc" [active]="isActive('/abc')">Theme Content Management</sidenav-router-link>
+        </sidenav-menu>
+
+        <!-- SEO -->
+        <sidenav-menu icon="ion ion-md-business" text="SEO" [active]="isMenuActive('/abc')" [open]="isMenuOpen('/abc')">
+            <sidenav-router-link route="/abc" [active]="isActive('/abc')">Product Keywords Tag Approval</sidenav-router-link>
+        </sidenav-menu>
+
+        <!-- Brand Management -->
+        <sidenav-menu icon="ion ion-md-business" text="Brand Management" [active]="isMenuActive('/abc')" [open]="isMenuOpen('/abc')">
+            <sidenav-router-link route="/abc" [active]="isActive('/abc')">Creator</sidenav-router-link>
+            <sidenav-router-link route="/abc" [active]="isActive('/abc')">Publisher</sidenav-router-link>
+        </sidenav-menu>
+
+        <!-- Management -->
+        <sidenav-router-link icon="ion ion-md-time" route="/abc" [active]="isActive('/abc')">Management</sidenav-router-link>
+
+        <!-- Backend Management -->
+        <sidenav-menu icon="ion ion-md-business" text="Backend Management" [active]="isMenuActive('/backend')" [open]="isMenuOpen('/backend')">
+            <sidenav-router-link route="/backend/category" [active]="isActive('/backend/category')">Category Management
+            </sidenav-router-link>
+            <sidenav-router-link route="/backend/code_domain" [active]="isActive('/backend/code_domain')">Code Domain Management
+            </sidenav-router-link>
+            <sidenav-router-link route="/backend/link" [active]="isActive('/backend/link')">Related Code Domain
+            </sidenav-router-link>
+
+            <sidenav-menu icon="ion ion-md-business" text="Communications Management" [active]="isMenuActive('/abc')" [open]="isMenuOpen('/abc')">
+                <sidenav-router-link route="/abc" [active]="isActive('/abc')">Communication Template Management</sidenav-router-link>
+                <sidenav-router-link route="/abc" [active]="isActive('/abc')">Communication compositions
+                </sidenav-router-link>
+                <sidenav-router-link route="/abc" [active]="isActive('/abc')">Related History
+                </sidenav-router-link>
+            </sidenav-menu>
+
+            <sidenav-menu icon="ion ion-md-business" text="Masters" [active]="isMenuActive('/abc')" [open]="isMenuOpen('/abc')">
+                <sidenav-router-link route="/abc" [active]="isActive('/abc')">Tax Masters
+                </sidenav-router-link>
+                <sidenav-router-link route="/abc" [active]="isActive('/abc')">HSN Masters
+                </sidenav-router-link>
+            </sidenav-menu>
+
+            <sidenav-router-link route="/abc" [active]="isActive('/abc')">Subscription Plan Management</sidenav-router-link>
+            <sidenav-router-link route="/abc" [active]="isActive('/abc')">Service</sidenav-router-link>
+        </sidenav-menu>
+
+    </div>
+</sidenav>

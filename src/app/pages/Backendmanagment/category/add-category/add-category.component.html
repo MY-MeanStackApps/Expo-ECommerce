@@ -1,0 +1,45 @@
+<div class="row pl-1">
+    <i class="ion d-block ion-md-arrow-round-back" routerLink="/backend/category"></i>
+</div>
+<br />
+<div class="modal-content">
+    <div class="row mt-3 mb-5 p-4">
+        <div class="form-group" style="width: 100%">
+            <div class="row">
+
+                <div class="col-12 col-md-12">
+                    <h4 class="p-1">
+                        <span *ngIf="action">Add</span>
+                        <span *ngIf="action">Edit</span>
+
+                    </h4>
+                </div>
+
+                <div class="col-12 col-md-6">
+                    <label class="form-label">Category Name</label>
+                    <input name="CategoryName" placeholder="Category Name" class="form-control" type="text" [(ngModel)]="formObj.name" />
+                </div>
+
+                <div class="col-12 col-md-6">
+                    <label class="form-label">Parent Category</label>
+                    <input name="Parent" placeholder="Parent Category" class="form-control" type="text" [(ngModel)]="formObj.parent" />
+                </div>
+
+                <div class="col-12 col-md-6">
+                    <label class="form-label">Status</label>
+                    <select name="status" id="" class="form-control" [(ngModel)]="formObj.status">
+                      <option value="">Please select One</option>
+                      <option value="active">Active</option>
+                      <option value="inactive">in Active</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <div class="row justify-content-end text-right mr-5 mt-5">
+                <button type="button" class="btn btn-success customBtn" *ngIf="action" (click)="create()"> Save and Exit </button>
+                <button type="button" class="btn btn-info customBtn" *ngIf="!action" (click)="update()"> Save and Exit </button>
+            </div>
+        </div>
+    </div>
+</div>

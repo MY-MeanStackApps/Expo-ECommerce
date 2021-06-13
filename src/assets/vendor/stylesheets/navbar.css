@@ -1,0 +1,6 @@
+#sidebar_logo {
+    width: 45%;
+    margin: 15px auto 10px;
+    display: block;
+    object-fit: scale-down;
+}

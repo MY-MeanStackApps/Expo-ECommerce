@@ -1,0 +1,43 @@
+<div class="container">
+    <div class="row justify-content-lg-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h2>Update Password</h2>
+                    <form>
+
+                        <div class="form-group col-12">
+                            <label>firstName</label>
+                            <input type="text" name="firstName" [(ngModel)]="formObj.firstName" class="form-control">
+                        </div>
+
+                        <div class="form-group col-12">
+                            <label>lastName</label>
+                            <input type="text" name="lastName" [(ngModel)]="formObj.lastName" class="form-control">
+                        </div>
+
+                        <div class="form-group col-12">
+                            <label>Email</label>
+                            <input type="email" name="email" [(ngModel)]="formObj.email" class="form-control">
+                        </div>
+
+                        <div class="form-group col-12">
+                            <label>Old Password</label>
+                            <input type="password" name="old" [(ngModel)]="formObj.old" class="form-control">
+                        </div>
+
+                        <div class="form-group col-12">
+                            <label>New Password</label>
+                            <input type="password" name="new" [(ngModel)]="formObj.new" class="form-control">
+                        </div>
+
+                        <div class="form-group col-12">
+                            <input type="submit" value="Update" class="btn btn-primary" (click)="onSubmit()">
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

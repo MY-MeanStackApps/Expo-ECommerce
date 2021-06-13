@@ -1,0 +1,35 @@
+<div class="">
+    <div class="">
+        <div class="row justify-content-center" style="width: 100%;margin: 140px 0px;">
+
+            <div class=" col-10 col-sm-8 col-md-6 col-lg-4 card">
+
+
+
+                <div class="">
+                    <div class="offset-2 col-md-8 mb-4">
+                        <img src="assets/logo_gravaldi.png" alt="image">
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" class="form-control" name="email" tabindex="1" placeholder="Email" value="michael23" [(ngModel)]="form.email" />
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Password</label>
+                            <input type="password" class="form-control" name="password" tabindex="2" [(ngModel)]="form.password" placeholder="Password" />
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-dark btn-block" tabindex="3" (click)="submit()">
+                        Login
+                      </button>
+                    </div>
+                    <!-- </div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

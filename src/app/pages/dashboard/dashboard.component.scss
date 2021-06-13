@@ -1,0 +1,36 @@
+.numbers .card-title {
+    margin: 0px 0px 0px 20px;
+}
+
+.fa {
+    font-size: 45px;
+}
+
+.card-title {
+    font-size: 30px;
+}
+
+.action_btn {
+    cursor: pointer !important;
+    margin-left: 7px !important;
+    font-size: large;
+}
+
+.action_btn:hover {
+    color: #5f5fff !important
+}
+
+#date_td {
+    min-width: 200px !important;
+}
+
+.table {
+    display: block !important;
+}
+
+#productIcon {
+    width: 180px !important;
+    height: 80px !important;
+    border-radius: 0px !important;
+    object-fit: cover !important;
+}
